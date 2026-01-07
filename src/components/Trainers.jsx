@@ -21,7 +21,7 @@ const Trainers = () => {
         {
             name: "Emily Strong",
             role: "Cardio Specialist",
-            image: "https://images.unsplash.com/photo-1611672585731-fa1060a7f3c2?auto=format&fit=crop&q=80&w=800",
+            image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop",
         }
     ];
 

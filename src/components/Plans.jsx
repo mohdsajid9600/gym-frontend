@@ -1,7 +1,12 @@
 import React from "react";
 import { Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Plans = () => {
+    const navigate = useNavigate();
+    const { user } = useAuth();
+
     const plans = [
         {
             name: "Basic",
@@ -22,6 +27,15 @@ const Plans = () => {
             recommended: false,
         },
     ];
+
+    const handleChoosePlan = (planName) => {
+        if (!user) {
+            alert("Please login to continue choosing a plan.");
+            navigate("/login");
+        } else {
+            navigate("/join", { state: { selectedPlan: planName } });
+        }
+    };
 
     return (
         <section id="plans" className="py-20 bg-white dark:bg-zinc-900 transition-colors duration-300">
@@ -73,11 +87,13 @@ const Plans = () => {
                                 ))}
                             </ul>
 
-                            <button className={`w-full py-4 rounded-xl font-bold uppercase tracking-wide transition-all duration-300
+                            <button
+                                onClick={() => handleChoosePlan(plan.name)}
+                                className={`w-full py-4 rounded-xl font-bold uppercase tracking-wide transition-all duration-300
                 ${plan.recommended
-                                    ? "bg-lime-500 text-black hover:bg-lime-400 hover:shadow-[0_0_20px_rgba(132,204,22,0.4)]"
-                                    : "bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200"
-                                }
+                                        ? "bg-lime-500 text-black hover:bg-lime-400 hover:shadow-[0_0_20px_rgba(132,204,22,0.4)]"
+                                        : "bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200"
+                                    }
               `}>
                                 Choose Plan
                             </button>

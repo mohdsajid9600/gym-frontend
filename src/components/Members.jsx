@@ -31,8 +31,18 @@ const Members = () => {
     };
 
     return (
-        <section id="members" className="py-20 bg-white dark:bg-zinc-900 transition-colors duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="members" className="relative py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=2675&auto=format&fit=crop"
+                    alt="Gym Members Background"
+                    className="w-full h-full object-cover opacity-10 dark:opacity-20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white dark:from-black/90 dark:via-black/50 dark:to-black"></div>
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                     <div>
                         <h2 className="text-sm font-bold text-lime-600 dark:text-lime-500 uppercase tracking-widest mb-2">Community</h2>
